@@ -1,6 +1,10 @@
-# CircleCI Images
+# Docker Images
 
 ## Overview
+
+Rewired Docker images.
+
+## CI
 
 A set of Rewired-specific convenience images that work better in context of CI. This repo is based on [circleci/circleci-images](https://github.com/circleci/circleci-images). It currently contains build tools images.
 
