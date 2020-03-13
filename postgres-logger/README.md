@@ -10,6 +10,8 @@ docker run  \
   gcr.io/assemble-services/postgres-logger:latest
 ```
 
+This uses [`dumb-init`](https://github.com/Yelp/dumb-init) to handle trapping signals. We include this in version control and source it locally because the `busybox` image does not support `wget` with TLS validation.
+
 Building:
 
 ```
