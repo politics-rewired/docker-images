@@ -12,4 +12,4 @@ ENTRYPOINT ["/usr/local/bin/dumb-init", "--"]
 
 # Expand envvars using sh -c
 # Replace `sh` process with `tail` by using exec
-CMD ["sh", "-c", "for i in $(seq 1 7); do touch ${LOG_DIR}/${LOG_NAME}-$i.log; done && exec tail -n+1 -F ${LOG_GLOB}"]
+CMD ["sh", "-c", "for i in $(seq 1 7); do touch ${LOG_DIR}/${LOG_NAME}-$i.log; done && exec tail -q -n+1 -F ${LOG_GLOB}"]
