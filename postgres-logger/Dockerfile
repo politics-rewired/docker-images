@@ -1,4 +1,4 @@
-FROM busybox
+FROM alpine:latest
 
 # Install dumb-init
 COPY dumb-init_1.2.2_amd64 /usr/local/bin/dumb-init
