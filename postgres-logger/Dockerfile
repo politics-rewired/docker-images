@@ -7,5 +7,7 @@ RUN chmod +x /usr/local/bin/dumb-init
 ENV LOG_GLOB="/home/postgres/pgdata/pgroot/pg_log/*.log"
 
 ENTRYPOINT ["/usr/local/bin/dumb-init", "--"]
-# This works: k exec acid-sandbox-cluster-0 -c pglogger -- sh -c 'exec tail -n+1 -F ${LOG_GLOB}'
+
+# Expand envvars using sh -c
+# Replace `sh` process with `tail` by using exec
 CMD ["sh", "-c", "exec tail -n+1 -F ${LOG_GLOB}"]
