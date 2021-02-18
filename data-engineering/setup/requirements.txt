@@ -1,0 +1,7 @@
+google-cloud-storage
+parsons
+pyarrow
+pycryptodome
+pandas
+cached_property
+more_itertools
