@@ -1,0 +1,5 @@
+# Ignore everything
+**
+
+# Allow source files
+!/entrypoint.sh
