@@ -2,7 +2,7 @@
 
 Docker image: `gcr.io/assemble-services/gcloud-sa`
 
-A minimal Docker image providing a service account-authed `gcloud` command to work with.
+A minimal Docker image providing a wrapper that authenticates `gcloud` using a service account and sends an email when the command errors.
 
 ## Cloud SQL Scaling
 
@@ -28,7 +28,7 @@ spec:
         spec:
           containers:
             - name: scale-cloud-sql-up
-              image: gcr.io/assemble-services/cloudsql-scaling
+              image: gcr.io/assemble-services/gcloud-sa
               args:
                 - gcloud
                 - sql
@@ -41,6 +41,18 @@ spec:
               env:
                 - name: GCP_KEY_FILE_PATH
                   value: /var/auth/service-account.json
+                - name: SMTP_TO
+                  value: devops@domain.com
+                - name: SMTP_FROM
+                  value: no-reply@domain.com
+                - name: SMTP_HOST
+                  value: email-smtp.us-east-1.amazonaws.com
+                - name: SMTP_PORT
+                  value: 587
+                - name: SMTP_USER
+                  value: AKIAJWOBYL2QRQQUVFXQ
+                - name: SMTP_PASSWORD
+                  value: ASecurePassword
               volumeMounts:
                 - name: cloud-sql-scaling-service-account
                   mountPath: "/var/auth"
@@ -66,7 +78,7 @@ spec:
         spec:
           containers:
             - name: scale-cloud-sql-down
-              image: gcr.io/assemble-services/cloudsql-scaling
+              image: gcr.io/assemble-services/gcloud-sa
               args:
                 - gcloud
                 - sql
@@ -78,6 +90,18 @@ spec:
               env:
                 - name: GCP_KEY_FILE_PATH
                   value: /var/auth/service-account.json
+                - name: SMTP_TO
+                  value: devops@domain.com
+                - name: SMTP_FROM
+                  value: no-reply@domain.com
+                - name: SMTP_HOST
+                  value: email-smtp.us-east-1.amazonaws.com
+                - name: SMTP_PORT
+                  value: 587
+                - name: SMTP_USER
+                  value: AKIAJWOBYL2QRQQUVFXQ
+                - name: SMTP_PASSWORD
+                  value: ASecurePassword
               volumeMounts:
                 - name: cloud-sql-scaling-service-account
                   mountPath: "/var/auth"

@@ -3,3 +3,4 @@
 
 # Allow source files
 !/entrypoint.sh
+!/msmtprc.tpl
