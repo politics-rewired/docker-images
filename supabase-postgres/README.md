@@ -9,6 +9,6 @@ If using the Access Token method, use the existing `gar-docker@assemble-services
 You may need to grant your own user account the "Service Account Token Creator" role and wait a bit before permissions update.
 
 ```sh
-docker build -t us-east4-docker.pkg.dev/assemble-services/apps/supabase-postgres:14.1.0-YOUR_CHANGES_HERE .
+docker build -t us-east4-docker.pkg.dev/assemble-services/apps/supabase-postgres:14.1.0-YOUR_CHANGES_HERE -f Dockerfile.YOUR_CHANGES_HERE .
 docker push us-east4-docker.pkg.dev/assemble-services/apps/supabase-postgres:14.1.0-YOUR_CHANGES_HERE
 ```
